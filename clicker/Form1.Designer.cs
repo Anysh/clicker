@@ -49,16 +49,16 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(636, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(62, 15);
+            this.label1.Size = new System.Drawing.Size(49, 15);
             this.label1.TabIndex = 1;
-            this.label1.Text = "money: $0";
+            this.label1.Text = "cash: $0";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // upgradebutton
             // 
-            this.upgradebutton.Location = new System.Drawing.Point(380, 351);
+            this.upgradebutton.Location = new System.Drawing.Point(380, 358);
             this.upgradebutton.Name = "upgradebutton";
-            this.upgradebutton.Size = new System.Drawing.Size(75, 23);
+            this.upgradebutton.Size = new System.Drawing.Size(75, 58);
             this.upgradebutton.TabIndex = 2;
             this.upgradebutton.Text = "Upgrade";
             this.upgradebutton.UseVisualStyleBackColor = true;
