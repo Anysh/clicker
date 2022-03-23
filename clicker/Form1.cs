@@ -2,19 +2,37 @@ namespace clicker
 {
     public partial class Form1 : Form
     {
-        int cash;
+        private int cash;
+        public int Cash
+        {
+            set
+            {
+                cash = value;
+                label1.Text = "Cash: $" + value.ToString();
+            }
+            get
+            { 
+            return cash;
+            }
+        }
         int buttonLevel;
+        int A1Ammount;
+        int A1Interval; //iloœæ cykli / min
         public Form1()
         {
             InitializeComponent();
-            cash = 0;
+            Cash = 0;
             buttonLevel = 1;
+            A1Ammount = 10;
+            A1Interval = 0;
+            A1AmmountTextBox.Text = A1Ammount.ToString();
+            A1AmmountTextBox.Text = A1Interval.ToString();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            cash += (int)Math.Pow(10, buttonLevel-1);
-            label1.Text = "cash: $"+cash.ToString();
+            Cash += (int)Math.Pow(10, buttonLevel-1);
+            
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -25,15 +43,39 @@ namespace clicker
         private void upgradebutton_Click(object sender, EventArgs e)
         {
             int upgradeCost = (int)Math.Pow(10, buttonLevel);
-            if (cash >= upgradeCost)
+            if (Cash >= upgradeCost)
             {
                 buttonLevel++;
                 buttonLevelTextBox.Text = buttonLevel.ToString();
-                cash -= upgradeCost;
-                label1.Text = "cash: $" + cash.ToString();
+                Cash -= upgradeCost;
+                
                 string nextUpgradeCost = "($" + Math.Pow(10, buttonLevel).ToString() + ")";
                 upgradebutton.Text = "Upgrade\n" + nextUpgradeCost;
             }
             }
+
+        private void A1UpgradeInterval_Click(object sender, EventArgs e)
+        {
+            int upgradeCost = A1Interval * 100;
+            if(Cash >= upgradeCost){
+                A1Interval++;
+                A1IntervalTextBox.Text = A1Interval.ToString();
+                A1Timer.Interval = (60 / A1Interval) * 100;
+                if (!A1Timer.Enabled)
+                    A1Timer.Enabled = true;
+                Cash -= upgradeCost;
+            }
+        }
+
+        private void A1UpgradeAmmount_Click(object sender, EventArgs e)
+        {
+            A1Ammount += 10;
+            A1AmmountTextBox.Text = A1Ammount.ToString();
+        }
+
+        private void A1Tick(object sender, EventArgs e)
+        {
+            Cash += A1Ammount;
+        }
     }
 }
