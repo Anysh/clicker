@@ -18,6 +18,8 @@ namespace clicker
         int buttonLevel;
         int A1Ammount;
         int A1Interval; //iloœæ cykli / min
+        int A2Interval;
+        int A3Interval;
         public Form1()
         {
             InitializeComponent();
@@ -25,6 +27,8 @@ namespace clicker
             buttonLevel = 1;
             A1Ammount = 10;
             A1Interval = 0;
+            A2Interval = 0;
+            A3Interval = 0;
             A1AmmountTextBox.Text = A1Ammount.ToString();
             A1AmmountTextBox.Text = A1Interval.ToString();
         }
@@ -74,6 +78,52 @@ namespace clicker
         }
 
         private void A1Tick(object sender, EventArgs e)
+        {
+            Cash += A1Ammount;
+        }
+
+        private void A2UpgradeInterval_Click(object sender, EventArgs e)
+        {
+            int upgradeCost = A2Interval * 1000;
+            if (Cash >= upgradeCost)
+            
+                A2Interval++;
+                A2IntervalTextBox.Text = A2Interval.ToString();
+                A2Timer.Interval = (60 / A2Interval) * 50;
+                if (!A2Timer.Enabled)
+                    A2Timer.Enabled = true;
+                Cash -= upgradeCost;
+            }
+
+        private void A2IntervalTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void A2Tick(object sender, EventArgs e)
+        {
+            Cash += A1Ammount;
+        }
+
+        private void A3UpgradeInterval_Click(object sender, EventArgs e)
+        {
+            int upgradeCost = A3Interval * 2000;
+            if (Cash >= upgradeCost && buttonLevel >= 5)
+                
+                A3Interval++;
+            A3IntervalTextBox.Text = A3Interval.ToString();
+            A3Time.Interval = (int)Math.Ceiling((double)((60 / A3Interval) * 30 + float.Epsilon));
+            if (!A3Time.Enabled)
+                A3Time.Enabled = true;
+            Cash -= upgradeCost;
+        }
+
+        private void A3IntervalTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void A3Tick(object sender, EventArgs e)
         {
             Cash += A1Ammount;
         }

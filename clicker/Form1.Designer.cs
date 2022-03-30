@@ -39,6 +39,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.A1IntervalTextBox = new System.Windows.Forms.TextBox();
             this.A1Timer = new System.Windows.Forms.Timer(this.components);
+            this.A2IntervalTextBox = new System.Windows.Forms.TextBox();
+            this.A2UpgradeInterval = new System.Windows.Forms.Button();
+            this.A2Timer = new System.Windows.Forms.Timer(this.components);
+            this.A3UpgradeInterval = new System.Windows.Forms.Button();
+            this.A3IntervalTextBox = new System.Windows.Forms.TextBox();
+            this.A3Time = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // button1
@@ -125,11 +131,59 @@
             // 
             this.A1Timer.Tick += new System.EventHandler(this.A1Tick);
             // 
+            // A2IntervalTextBox
+            // 
+            this.A2IntervalTextBox.Location = new System.Drawing.Point(346, 126);
+            this.A2IntervalTextBox.Name = "A2IntervalTextBox";
+            this.A2IntervalTextBox.Size = new System.Drawing.Size(100, 23);
+            this.A2IntervalTextBox.TabIndex = 10;
+            this.A2IntervalTextBox.TextChanged += new System.EventHandler(this.A2IntervalTextBox_TextChanged);
+            // 
+            // A2UpgradeInterval
+            // 
+            this.A2UpgradeInterval.Location = new System.Drawing.Point(453, 98);
+            this.A2UpgradeInterval.Name = "A2UpgradeInterval";
+            this.A2UpgradeInterval.Size = new System.Drawing.Size(166, 77);
+            this.A2UpgradeInterval.TabIndex = 11;
+            this.A2UpgradeInterval.Text = "ulepsz częstotliwość (2xspeed)";
+            this.A2UpgradeInterval.UseVisualStyleBackColor = true;
+            this.A2UpgradeInterval.Click += new System.EventHandler(this.A2UpgradeInterval_Click);
+            // 
+            // A2Timer
+            // 
+            this.A2Timer.Tick += new System.EventHandler(this.A2Tick);
+            // 
+            // A3UpgradeInterval
+            // 
+            this.A3UpgradeInterval.Location = new System.Drawing.Point(453, 181);
+            this.A3UpgradeInterval.Name = "A3UpgradeInterval";
+            this.A3UpgradeInterval.Size = new System.Drawing.Size(166, 79);
+            this.A3UpgradeInterval.TabIndex = 12;
+            this.A3UpgradeInterval.Text = "ulepsz częstotliwość (upgrade lvl8 needed)";
+            this.A3UpgradeInterval.UseVisualStyleBackColor = true;
+            this.A3UpgradeInterval.Click += new System.EventHandler(this.A3UpgradeInterval_Click);
+            // 
+            // A3IntervalTextBox
+            // 
+            this.A3IntervalTextBox.Location = new System.Drawing.Point(346, 210);
+            this.A3IntervalTextBox.Name = "A3IntervalTextBox";
+            this.A3IntervalTextBox.Size = new System.Drawing.Size(100, 23);
+            this.A3IntervalTextBox.TabIndex = 13;
+            this.A3IntervalTextBox.TextChanged += new System.EventHandler(this.A3IntervalTextBox_TextChanged);
+            // 
+            // A3Time
+            // 
+            this.A3Time.Tick += new System.EventHandler(this.A3Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.A3IntervalTextBox);
+            this.Controls.Add(this.A3UpgradeInterval);
+            this.Controls.Add(this.A2UpgradeInterval);
+            this.Controls.Add(this.A2IntervalTextBox);
             this.Controls.Add(this.A1IntervalTextBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.A1UpgradeInterval);
@@ -158,5 +212,11 @@
         private Label label2;
         private TextBox A1IntervalTextBox;
         private System.Windows.Forms.Timer A1Timer;
+        private TextBox A2IntervalTextBox;
+        private Button A2UpgradeInterval;
+        private System.Windows.Forms.Timer A2Timer;
+        private Button A3UpgradeInterval;
+        private TextBox A3IntervalTextBox;
+        private System.Windows.Forms.Timer A3Time;
     }
 }
