@@ -47,6 +47,8 @@
             this.A3Time = new System.Windows.Forms.Timer(this.components);
             this.A2UpgradeAmmount = new System.Windows.Forms.Button();
             this.A2AmmountTextBox = new System.Windows.Forms.TextBox();
+            this.A3UpgradeButton = new System.Windows.Forms.Button();
+            this.A3AmmountTextBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // button1
@@ -195,11 +197,31 @@
             this.A2AmmountTextBox.TabIndex = 15;
             this.A2AmmountTextBox.TextChanged += new System.EventHandler(this.A2AmmountTextBox_TextChanged);
             // 
+            // A3UpgradeButton
+            // 
+            this.A3UpgradeButton.Location = new System.Drawing.Point(170, 181);
+            this.A3UpgradeButton.Name = "A3UpgradeButton";
+            this.A3UpgradeButton.Size = new System.Drawing.Size(166, 80);
+            this.A3UpgradeButton.TabIndex = 16;
+            this.A3UpgradeButton.Text = "ulepsz ilość (for lvl3)";
+            this.A3UpgradeButton.UseVisualStyleBackColor = true;
+            this.A3UpgradeButton.Click += new System.EventHandler(this.A3UpgradeButton_Click);
+            // 
+            // A3AmmountTextBox
+            // 
+            this.A3AmmountTextBox.Location = new System.Drawing.Point(38, 210);
+            this.A3AmmountTextBox.Name = "A3AmmountTextBox";
+            this.A3AmmountTextBox.Size = new System.Drawing.Size(100, 23);
+            this.A3AmmountTextBox.TabIndex = 17;
+            this.A3AmmountTextBox.TextChanged += new System.EventHandler(this.A3AmmountTextBox_TextChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.A3AmmountTextBox);
+            this.Controls.Add(this.A3UpgradeButton);
             this.Controls.Add(this.A2AmmountTextBox);
             this.Controls.Add(this.A2UpgradeAmmount);
             this.Controls.Add(this.A3IntervalTextBox);
@@ -242,5 +264,7 @@
         private System.Windows.Forms.Timer A3Time;
         private Button A2UpgradeAmmount;
         private TextBox A2AmmountTextBox;
+        private Button A3UpgradeButton;
+        private TextBox A3AmmountTextBox;
     }
 }

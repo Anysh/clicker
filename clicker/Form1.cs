@@ -18,6 +18,7 @@ namespace clicker
         uint buttonLevel;
         int A1Ammount;
         int A2Ammount;
+        int A3Ammount;
         int A1Interval; //iloœæ cykli / min
         int A2Interval;
         int A3Interval;
@@ -28,6 +29,7 @@ namespace clicker
             buttonLevel = 1;
             A1Ammount = 10;
             A2Ammount = 10;
+            A3Ammount = 10;
             A1Interval = 0;
             A2Interval = 0;
             A3Interval = 0;
@@ -131,7 +133,7 @@ namespace clicker
 
         private void A3Tick(object sender, EventArgs e)
         {
-            Cash += A1Ammount;
+            Cash += A3Ammount;
         }
 
         private void A2UpgradeAmmount_Click(object sender, EventArgs e)
@@ -143,6 +145,17 @@ namespace clicker
         private void A2AmmountTextBox_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void A3UpgradeButton_Click(object sender, EventArgs e)
+        {
+            A3Ammount += 50;
+            A3AmmountTextBox.Text = A3Ammount.ToString();
+        }
+
+        private void A3AmmountTextBox_TextChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }
