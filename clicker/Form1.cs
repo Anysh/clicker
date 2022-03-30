@@ -15,8 +15,9 @@ namespace clicker
             return cash;
             }
         }
-        int buttonLevel;
+        uint buttonLevel;
         int A1Ammount;
+        int A2Ammount;
         int A1Interval; //iloœæ cykli / min
         int A2Interval;
         int A3Interval;
@@ -26,6 +27,7 @@ namespace clicker
             Cash = 0;
             buttonLevel = 1;
             A1Ammount = 10;
+            A2Ammount = 10;
             A1Interval = 0;
             A2Interval = 0;
             A3Interval = 0;
@@ -86,7 +88,8 @@ namespace clicker
         {
             int upgradeCost = A2Interval * 1000;
             if (Cash >= upgradeCost)
-            
+            {
+
                 A2Interval++;
                 A2IntervalTextBox.Text = A2Interval.ToString();
                 A2Timer.Interval = (60 / A2Interval) * 50;
@@ -94,6 +97,7 @@ namespace clicker
                     A2Timer.Enabled = true;
                 Cash -= upgradeCost;
             }
+        }
 
         private void A2IntervalTextBox_TextChanged(object sender, EventArgs e)
         {
@@ -102,20 +106,22 @@ namespace clicker
 
         private void A2Tick(object sender, EventArgs e)
         {
-            Cash += A1Ammount;
+            Cash += A2Ammount;
         }
 
         private void A3UpgradeInterval_Click(object sender, EventArgs e)
         {
             int upgradeCost = A3Interval * 2000;
-            if (Cash >= upgradeCost && buttonLevel >= 5)
-                
+            if (Cash >= upgradeCost && buttonLevel >= 3)
+            {
+
                 A3Interval++;
-            A3IntervalTextBox.Text = A3Interval.ToString();
-            A3Time.Interval = (int)Math.Ceiling((double)((60 / A3Interval) * 30 + float.Epsilon));
-            if (!A3Time.Enabled)
-                A3Time.Enabled = true;
-            Cash -= upgradeCost;
+                A3IntervalTextBox.Text = A3Interval.ToString();
+                A3Time.Interval = (int)Math.Ceiling((double)((60 / A3Interval) * 30 + float.Epsilon));
+                if (!A3Time.Enabled)
+                    A3Time.Enabled = true;
+                Cash -= upgradeCost;
+            }
         }
 
         private void A3IntervalTextBox_TextChanged(object sender, EventArgs e)
@@ -126,6 +132,17 @@ namespace clicker
         private void A3Tick(object sender, EventArgs e)
         {
             Cash += A1Ammount;
+        }
+
+        private void A2UpgradeAmmount_Click(object sender, EventArgs e)
+        {
+            A2Ammount += 30;
+            A2AmmountTextBox.Text = A2Ammount.ToString();
+        }
+
+        private void A2AmmountTextBox_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
